@@ -7,8 +7,10 @@ import mediapipe as mp
 from tensorflow import keras
 from keras.models import load_model
 
+#Load Emotion Model
 model = load_model("Model/Output/Emotion_Model.keras")
 
+#Creating Emotion Class Dictionary
 emotion_classes = {0:'Happy', 1:'Sad'}
 
 #Declare Mediapipe Face Mesh
