@@ -10,9 +10,10 @@ from IPython.display import Image
 from keras.models import load_model
 from keras.preprocessing import image
 
+#Load Emotion Model
 model = load_model("Model/Output/Emotion_Model.keras")
 
-#Creating Two Class Dictionary
+#Creating Class Dictionary
 emotion_classes = {0:'Happy', 1:'Sad'}
 
 #Define Mediapipe Face Mesh
