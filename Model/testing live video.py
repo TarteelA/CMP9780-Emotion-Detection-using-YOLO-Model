@@ -43,6 +43,7 @@ with mesh_face_me.FaceMesh(
         for (x, y, w, h) in faces:
             #Extract Face ROI (Region Of Interest)
             face_roi = gray_frame[y:y + h, x:x + w]
+            
             #Resize Image To Match Model's Expected Sizing
             img = cv2.resize(face_roi ,(224, 224))     
             img = img.reshape(-1, 224, 224, 1) 

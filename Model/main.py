@@ -147,7 +147,7 @@ new_label = ['Happy', 'Sad']
 final_label = new_label
 new_class = 2
 
-#Ravel flatten array into one vector
+#Ravel Flatten Array Into One Vector
 y_pred_ravel = Y_pred.ravel()
 lw = 2
 

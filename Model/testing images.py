@@ -29,29 +29,29 @@ with mesh_face_me.FaceMesh(
     refine_landmarks = True,
     min_detection_confidence = 0.5) as mesh_face:
 
-    #Read Downloaded Test Image In OpenCV
+    #Read Test Image
     test_img = cv2.imread('Model/Photos/1happy.png')
     
-    #Convert Image To Gray Scale OpenCV
+    #Convert Test Image To Gray Scale
     gray_img = cv2.cvtColor(test_img, cv2.COLOR_BGR2GRAY)
     
     #Define Haar Cascade Classifier For Face Detection
     face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
   
     #Detect face Using Haar Cascade Classifier
-    faces_coordinates = face_classifier.detectMultiScale(gray_img, 1.3, 5)
+    face_coordinates = face_classifier.detectMultiScale(gray_img, 1.3, 5)
     
     i = 0
     #Draw Rectangle Around Faces
-    for (x, y, w, h) in faces_coordinates:
+    for (x, y, w, h) in faces_coordinate:
         i = i + 1
         #Draw Rectangle Around Face
         cv2.rectangle(test_img, (x, y), (x + w, y + h), (255, 0, 0), 2)
             
         #Crop Face From Image
         cropped_face = gray_img[y:y+h, x:x+w]
-        final_image1 = cv2.resize(cropped_face, (224, 224), interpolation = cv2.INTER_AREA)
-        final_image_array = np.array(final_image1)
+        final_image = cv2.resize(cropped_face, (224, 224), interpolation = cv2.INTER_AREA)
+        final_image_array = np.array(final_image)
         
         #Need 4th Dimension
         input_test = np.expand_dims(final_image_array, axis = 0) 
